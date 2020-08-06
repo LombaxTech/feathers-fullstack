@@ -1,4 +1,6 @@
-const { authenticate } = require("@feathersjs/authentication").hooks;
+// const { authenticate } = require("@feathersjs/authentication").hooks;
+
+const populateUser = require("../../hooks/populate-user");
 
 module.exports = {
   before: {
@@ -12,7 +14,7 @@ module.exports = {
   },
 
   after: {
-    all: [],
+    all: [populateUser()],
     find: [],
     get: [],
     create: [],
