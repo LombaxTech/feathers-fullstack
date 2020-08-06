@@ -1,13 +1,12 @@
 const { Service } = require("feathers-mongoose");
 
-exports.Users = class Users extends Service {
-  async find(params) {
-    console.log(params);
+const validator = require("email-validator");
 
-    const extraInfo = {
-      name: "deku",
-      overrated: true,
-    };
-    return super.find();
+exports.Users = class Users extends Service {
+  async create(data, params) {
+    if (!validator.validate(data.email)) {
+      throw new Error("Invalid email");
+    }
+    return super.create(data, params);
   }
 };
