@@ -14,7 +14,7 @@ module.exports = {
   },
 
   after: {
-    all: [populateUser()],
+    all: [],
     find: [],
     get: [],
     create: [],
