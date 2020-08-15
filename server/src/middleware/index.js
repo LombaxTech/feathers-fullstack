@@ -21,4 +21,8 @@ module.exports = function (app) {
     // res.json(posts.length);
     res.json(posts);
   });
+
+  app.get("/customroute", async (req, res) => {
+    res.send("custom route");
+  });
 };
