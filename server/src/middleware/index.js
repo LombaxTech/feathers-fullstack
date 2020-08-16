@@ -1,5 +1,6 @@
 const createUserModel = require("../models/users.model");
 const createPostModel = require("../models/post.model");
+const { sayHello, createUser } = require("./controller");
 
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
@@ -22,7 +23,7 @@ module.exports = function (app) {
     res.json(posts);
   });
 
-  app.get("/customroute", async (req, res) => {
-    res.send("custom route");
-  });
+  app.get("/customroute", sayHello);
+
+  app.post("/createuser", createUser(app));
 };
